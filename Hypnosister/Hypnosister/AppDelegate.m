@@ -19,12 +19,23 @@
     didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
   self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 
-  CGRect firstFrame = self.window.bounds;
+  // Create CGRects for frames
+  CGRect screenRect = self.window.bounds;
+  CGRect bigRect = screenRect;
+  bigRect.size.width *= 2.0;
+  bigRect.size.height *= 2.0;
 
-  BNRHypnosisView *firstView =
-      [[BNRHypnosisView alloc] initWithFrame:firstFrame];
+  // Create a screen-sized scroll view and add it to the window
+  UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:screenRect];
+  [self.window addSubview:scrollView];
 
-  [self.window addSubview:firstView];
+  // Create a super-sized hypnosis view and add it to the scroll view
+  BNRHypnosisView *hypnosisView =
+      [[BNRHypnosisView alloc] initWithFrame:bigRect];
+  [scrollView addSubview:hypnosisView];
+
+  // Tell the scroll view how big its content area is
+  scrollView.contentSize = bigRect.size;
 
   self.window.backgroundColor = [UIColor whiteColor];
   [self.window makeKeyAndVisible];
