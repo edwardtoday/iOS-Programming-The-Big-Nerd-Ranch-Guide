@@ -10,6 +10,7 @@
 #import "BNRHypnosisView.h"
 
 @interface BNRHypnosisViewController ()
+@property(nonatomic) BNRHypnosisView *hypnosis;
 
 @end
 
@@ -17,10 +18,38 @@
 
 - (void)loadView {
   // Create a view
-  BNRHypnosisView *backgroundView = [[BNRHypnosisView alloc] init];
+  _hypnosis = [[BNRHypnosisView alloc] init];
 
   // Set it as *the* view of this view controller
-  self.view = backgroundView;
+  self.view = _hypnosis;
+
+  UISegmentedControl *segmentCtrl = [[UISegmentedControl alloc]
+      initWithItems:@[ @"Red", @"Green", @"Blue" ]];
+  [segmentCtrl setBackgroundColor:[UIColor whiteColor]];
+  segmentCtrl.autoresizingMask = UIViewAutoresizingFlexibleTopMargin |
+                                 UIViewAutoresizingFlexibleBottomMargin |
+                                 UIViewAutoresizingFlexibleLeftMargin |
+                                 UIViewAutoresizingFlexibleRightMargin;
+  [segmentCtrl addTarget:self
+                  action:@selector(changeColorTo:)
+        forControlEvents:UIControlEventValueChanged];
+  [self.view addSubview:segmentCtrl];
+}
+
+- (void)changeColorTo:(UISegmentedControl *)segment {
+  switch (segment.selectedSegmentIndex) {
+  case 0:
+    [_hypnosis setCircleColor:[UIColor redColor]];
+    break;
+  case 1:
+    [_hypnosis setCircleColor:[UIColor greenColor]];
+    break;
+  case 2:
+    [_hypnosis setCircleColor:[UIColor blueColor]];
+    break;
+  default:
+    break;
+  }
 }
 
 - (void)viewDidLoad {

@@ -83,19 +83,19 @@
   return self;
 }
 
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-  NSLog(@"%@ was touched", self);
-
-  // Get 3 random numbers between 0 and 1
-  float red = (arc4random() % 100) / 100.0;
-  float green = (arc4random() % 100) / 100.0;
-  float blue = (arc4random() % 100) / 100.0;
-
-  UIColor *randomColor =
-      [UIColor colorWithRed:red green:green blue:blue alpha:1.0];
-
-  self.circleColor = randomColor;
-}
+//- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+//  NSLog(@"%@ was touched", self);
+//
+//  // Get 3 random numbers between 0 and 1
+//  float red = (arc4random() % 100) / 100.0;
+//  float green = (arc4random() % 100) / 100.0;
+//  float blue = (arc4random() % 100) / 100.0;
+//
+//  UIColor *randomColor =
+//      [UIColor colorWithRed:red green:green blue:blue alpha:1.0];
+//
+//  self.circleColor = randomColor;
+//}
 
 - (void)setCircleColor:(UIColor *)circleColor {
   _circleColor = circleColor;
