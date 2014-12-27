@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BNRQuizViewController">
+            <connections>
+                <outlet property="answerLabel" destination="7ho-34-0iY" id="PcH-RU-woO"/>
+                <outlet property="questionLabel" destination="KH7-bQ-hQi" id="zYM-Dq-KD1"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="uRb-xJ-jS0"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KH7-bQ-hQi">
+                    <rect key="frame" x="125" y="77" width="351" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="351" id="AZV-pl-P6w"/>
+                        <constraint firstAttribute="height" constant="21" id="jXu-6X-3Oe"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xb2-Zs-SZr">
+                    <rect key="frame" x="248" y="106" width="105" height="30"/>
+                    <state key="normal" title="Show Question">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="showQuestion:" destination="-1" eventType="touchUpInside" id="Iby-g6-dQs"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="???" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ho-34-0iY">
+                    <rect key="frame" x="125" y="311" width="351" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FFm-Yg-awv">
+                    <rect key="frame" x="253" y="340" width="94" height="30"/>
+                    <state key="normal" title="Show Answer">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="showAnswer:" destination="-1" eventType="touchUpInside" id="BZC-DT-6qP"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="Xb2-Zs-SZr" firstAttribute="top" secondItem="KH7-bQ-hQi" secondAttribute="bottom" constant="8" symbolic="YES" id="CGx-po-qb0"/>
+                <constraint firstItem="KH7-bQ-hQi" firstAttribute="centerX" secondItem="Xb2-Zs-SZr" secondAttribute="centerX" id="Dgc-4Q-PtQ"/>
+                <constraint firstItem="FFm-Yg-awv" firstAttribute="top" secondItem="7ho-34-0iY" secondAttribute="bottom" constant="8" symbolic="YES" id="QeT-mp-KTA"/>
+                <constraint firstAttribute="bottom" secondItem="FFm-Yg-awv" secondAttribute="bottom" constant="230" id="SeG-Ot-YRq"/>
+                <constraint firstItem="KH7-bQ-hQi" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="77" id="Vhf-ni-c62"/>
+                <constraint firstItem="7ho-34-0iY" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="i52-qX-Vzx"/>
+                <constraint firstItem="7ho-34-0iY" firstAttribute="trailing" secondItem="KH7-bQ-hQi" secondAttribute="trailing" id="keJ-Hl-j9m"/>
+                <constraint firstItem="7ho-34-0iY" firstAttribute="leading" secondItem="KH7-bQ-hQi" secondAttribute="leading" id="q2b-9Y-Dlv"/>
+                <constraint firstItem="FFm-Yg-awv" firstAttribute="centerX" secondItem="7ho-34-0iY" secondAttribute="centerX" id="se6-p1-1OL"/>
+            </constraints>
+        </view>
+    </objects>
+</document>
