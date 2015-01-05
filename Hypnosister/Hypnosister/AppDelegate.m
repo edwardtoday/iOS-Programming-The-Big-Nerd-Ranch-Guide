@@ -9,8 +9,9 @@
 #import "AppDelegate.h"
 #import "BNRHypnosisView.h"
 
-@interface AppDelegate ()
+@interface AppDelegate () <UIScrollViewDelegate>
 
+@property(nonatomic) BNRHypnosisView *hypnosisView;
 @end
 
 @implementation AppDelegate
@@ -26,13 +27,15 @@
 
   // Create a screen-sized scroll view and add it to the window
   UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:screenRect];
-  scrollView.pagingEnabled = YES;
+  scrollView.pagingEnabled = NO;
+  scrollView.delegate = self;
+  scrollView.minimumZoomScale = 1.0;
+  scrollView.maximumZoomScale = 2.0;
   [self.window addSubview:scrollView];
 
   // Create a screen-sized hypnosis view and add it to the scroll view
-  BNRHypnosisView *hypnosisView =
-      [[BNRHypnosisView alloc] initWithFrame:screenRect];
-  [scrollView addSubview:hypnosisView];
+  self.hypnosisView = [[BNRHypnosisView alloc] initWithFrame:screenRect];
+  [scrollView addSubview:self.hypnosisView];
 
   // Add a second screen-sized hypnosis view just off screen to the right
   screenRect.origin.x += screenRect.size.width;
@@ -47,6 +50,10 @@
   [self.window makeKeyAndVisible];
 
   return YES;
+}
+
+- (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView {
+  return self.hypnosisView;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
