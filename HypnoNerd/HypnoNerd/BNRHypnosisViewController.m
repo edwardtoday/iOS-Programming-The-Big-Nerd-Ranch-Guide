@@ -23,6 +23,14 @@
   // Set it as *the* view of this view controller
   self.view = _hypnosis;
 
+  CGRect textFieldRect = CGRectMake(40, 70, 240, 30);
+  UITextField *textField = [[UITextField alloc] initWithFrame:textFieldRect];
+  // Setting the border style on the text field will allow us to see it more
+  // easily
+  textField.borderStyle = UITextBorderStyleRoundedRect;
+
+  [self.view addSubview:textField];
+
   UISegmentedControl *segmentCtrl = [[UISegmentedControl alloc]
       initWithItems:@[ @"Red", @"Green", @"Blue" ]];
   [segmentCtrl setBackgroundColor:[UIColor whiteColor]];
