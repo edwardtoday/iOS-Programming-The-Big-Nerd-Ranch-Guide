@@ -15,6 +15,7 @@
 		DCA251461A5A6463000A0E25 /* BNRItemsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DCA251451A5A6463000A0E25 /* BNRItemsViewController.m */; };
 		DCA2514C1A5A6D32000A0E25 /* BNRItem.m in Sources */ = {isa = PBXBuildFile; fileRef = DCA2514B1A5A6D32000A0E25 /* BNRItem.m */; };
 		DCA2514F1A5A7240000A0E25 /* BNRItemStore.m in Sources */ = {isa = PBXBuildFile; fileRef = DCA2514E1A5A7240000A0E25 /* BNRItemStore.m */; };
+		DCDBF1171A5B830300CFAA4C /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCDBF1161A5B830300CFAA4C /* HeaderView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		DCA2514B1A5A6D32000A0E25 /* BNRItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNRItem.m; sourceTree = "<group>"; };
 		DCA2514D1A5A7240000A0E25 /* BNRItemStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNRItemStore.h; sourceTree = "<group>"; };
 		DCA2514E1A5A7240000A0E25 /* BNRItemStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNRItemStore.m; sourceTree = "<group>"; };
+		DCDBF1161A5B830300CFAA4C /* HeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +95,7 @@
 				DCA251231A5A5ADB000A0E25 /* AppDelegate.m */,
 				DCA251441A5A6463000A0E25 /* BNRItemsViewController.h */,
 				DCA251451A5A6463000A0E25 /* BNRItemsViewController.m */,
+				DCDBF1161A5B830300CFAA4C /* HeaderView.xib */,
 				DCA2512B1A5A5ADB000A0E25 /* Images.xcassets */,
 				DCA2512D1A5A5ADB000A0E25 /* LaunchScreen.xib */,
 				DCA2511E1A5A5ADB000A0E25 /* Supporting Files */,
@@ -206,6 +209,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DCDBF1171A5B830300CFAA4C /* HeaderView.xib in Resources */,
 				DCA2512F1A5A5ADB000A0E25 /* LaunchScreen.xib in Resources */,
 				DCA2512C1A5A5ADB000A0E25 /* Images.xcassets in Resources */,
 			);
@@ -412,6 +416,7 @@
 				DCA251401A5A5ADB000A0E25 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DCA251411A5A5ADB000A0E25 /* Build configuration list for PBXNativeTarget "HomepwnerTests" */ = {
 			isa = XCConfigurationList;
@@ -420,6 +425,7 @@
 				DCA251431A5A5ADB000A0E25 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
