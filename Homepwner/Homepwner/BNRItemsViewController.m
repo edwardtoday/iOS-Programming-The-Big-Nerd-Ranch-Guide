@@ -171,6 +171,7 @@
 - (void)tableView:(UITableView *)tableView
     didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
   if (![self itemStoreHasItemAtIndexPath:indexPath]) {
+    [self.tableView deselectRowAtIndexPath:indexPath animated:NO];
     return;
   }
 
