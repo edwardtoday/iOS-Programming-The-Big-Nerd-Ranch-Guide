@@ -45,7 +45,6 @@
 }
 
 - (NSArray *)allItems {
-  [self.privateItems sortUsingSelector:@selector(valueInDollars)];
   return self.privateItems;
 }
 

@@ -21,7 +21,7 @@
   self = [super initWithStyle:UITableViewStyleGrouped];
   if (self) {
     self.sectionTitles = @[ @"more than $50", @"others" ];
-    for (int i = 0; i < 20; i++) {
+    for (int i = 0; i < 1; i++) {
       [[BNRItemStore sharedStore] createItem];
     }
   }
@@ -51,7 +51,9 @@
   default:
     break;
   }
-  return [filteredItems count];
+  return section == [self numberOfSectionsInTableView:tableView] - 1
+             ? [filteredItems count] + 1 // add a constant row in last section
+             : [filteredItems count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView
@@ -87,9 +89,13 @@
     break;
   }
 
-  item = filteredItems[indexPath.row];
+  if (indexPath.row == [filteredItems count]) {
+    cell.textLabel.text = @"No more items!";
+  } else {
+    item = filteredItems[indexPath.row];
 
-  cell.textLabel.text = [item description];
+    cell.textLabel.text = [item description];
+  }
 
   return cell;
 }
