@@ -35,7 +35,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView
     numberOfRowsInSection:(NSInteger)section {
-  return [[[BNRItemStore sharedStore] allItems] count];
+  return [[[BNRItemStore sharedStore] allItems] count] + 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView
@@ -50,12 +50,19 @@
       [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell"
                                       forIndexPath:indexPath];
 
-  // Set the text on the cell with the description of the item that is at the
-  // nth index of items, where n = row this cell will appear in on the tableview
-  NSArray *items = [[BNRItemStore sharedStore] allItems];
-  BNRItem *item = items[indexPath.row];
+  if (indexPath.row + 1 ==
+      [self tableView:tableView numberOfRowsInSection:indexPath.section]) {
+    cell.textLabel.text = @"No more items!";
+  } else {
 
-  cell.textLabel.text = [item description];
+    // Set the text on the cell with the description of the item that is at the
+    // nth index of items, where n = row this cell will appear in on the
+    // tableview
+    NSArray *items = [[BNRItemStore sharedStore] allItems];
+    BNRItem *item = items[indexPath.row];
+
+    cell.textLabel.text = [item description];
+  }
 
   return cell;
 }
@@ -110,11 +117,14 @@
   if (editingStyle == UITableViewCellEditingStyleDelete) {
     NSArray *items = [[BNRItemStore sharedStore] allItems];
     BNRItem *item = items[indexPath.row];
-    [[BNRItemStore sharedStore] removeItem:item];
+    if (item) {
 
-    // Also remove that row from the table view with an animation
-    [tableView deleteRowsAtIndexPaths:@[ indexPath ]
-                     withRowAnimation:UITableViewRowAnimationFade];
+      [[BNRItemStore sharedStore] removeItem:item];
+
+      // Also remove that row from the table view with an animation
+      [tableView deleteRowsAtIndexPaths:@[ indexPath ]
+                       withRowAnimation:UITableViewRowAnimationFade];
+    }
   }
 }
 
@@ -132,6 +142,28 @@
     [[NSBundle mainBundle] loadNibNamed:@"HeaderView" owner:self options:nil];
   }
   return _headerView;
+}
+
+- (NSString *)tableView:(UITableView *)tableView
+    titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath {
+  return @"Remove";
+}
+
+- (NSIndexPath *)tableView:(UITableView *)tableView
+    targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath
+                         toProposedIndexPath:
+                             (NSIndexPath *)proposedDestinationIndexPath {
+  NSUInteger rowsInStore = [[[BNRItemStore sharedStore] allItems] count];
+
+  if (sourceIndexPath.row >= rowsInStore) {
+    return sourceIndexPath;
+  }
+
+  if (proposedDestinationIndexPath.row >= rowsInStore) {
+    return [NSIndexPath indexPathForRow:rowsInStore - 1
+                              inSection:proposedDestinationIndexPath.section];
+  }
+  return proposedDestinationIndexPath;
 }
 
 @end
