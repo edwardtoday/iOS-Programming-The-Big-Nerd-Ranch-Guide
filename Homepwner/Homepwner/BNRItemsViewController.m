@@ -9,6 +9,7 @@
 #import "BNRItemsViewController.h"
 #import "BNRItemStore.h"
 #import "BNRItem.h"
+#import "BNRDetailViewController.h"
 
 @interface BNRItemsViewController ()
 
@@ -50,8 +51,7 @@
       [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell"
                                       forIndexPath:indexPath];
 
-  if (indexPath.row + 1 ==
-      [self tableView:tableView numberOfRowsInSection:indexPath.section]) {
+  if (![self itemStoreHasItemAtIndexPath:indexPath]) {
     cell.textLabel.text = @"No more items!";
   } else {
 
@@ -153,17 +153,47 @@
     targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath
                          toProposedIndexPath:
                              (NSIndexPath *)proposedDestinationIndexPath {
-  NSUInteger rowsInStore = [[[BNRItemStore sharedStore] allItems] count];
 
-  if (sourceIndexPath.row >= rowsInStore) {
+  if (![self itemStoreHasItemAtIndexPath:sourceIndexPath]) {
     return sourceIndexPath;
   }
 
-  if (proposedDestinationIndexPath.row >= rowsInStore) {
-    return [NSIndexPath indexPathForRow:rowsInStore - 1
-                              inSection:proposedDestinationIndexPath.section];
+  if (![self itemStoreHasItemAtIndexPath:proposedDestinationIndexPath]) {
+    return [NSIndexPath
+        indexPathForRow:
+            [self tableView:tableView
+                numberOfRowsInSection:proposedDestinationIndexPath.section] -
+            1 inSection:proposedDestinationIndexPath.section];
   }
   return proposedDestinationIndexPath;
+}
+
+- (void)tableView:(UITableView *)tableView
+    didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+  if (![self itemStoreHasItemAtIndexPath:indexPath]) {
+    return;
+  }
+
+  BNRDetailViewController *detailViewController =
+      [[BNRDetailViewController alloc] init];
+
+  NSArray *items = [[BNRItemStore sharedStore] allItems];
+  BNRItem *selectedItem = items[indexPath.row];
+
+  // Give detail view controller a pointer to the item object in row
+  detailViewController.item = selectedItem;
+
+  // Push it onto the top of the navigation controller's stack
+  [self.navigationController pushViewController:detailViewController
+                                       animated:YES];
+}
+
+- (BOOL)itemStoreHasItemAtIndexPath:(NSIndexPath *)indexPath {
+  NSUInteger rowsInStore = [[[BNRItemStore sharedStore] allItems] count];
+  if (indexPath.row < rowsInStore) {
+    return YES;
+  }
+  return NO;
 }
 
 @end
