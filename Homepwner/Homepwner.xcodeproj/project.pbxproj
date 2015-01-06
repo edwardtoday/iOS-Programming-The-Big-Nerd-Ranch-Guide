@@ -15,6 +15,8 @@
 		DCA251461A5A6463000A0E25 /* BNRItemsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DCA251451A5A6463000A0E25 /* BNRItemsViewController.m */; };
 		DCA2514C1A5A6D32000A0E25 /* BNRItem.m in Sources */ = {isa = PBXBuildFile; fileRef = DCA2514B1A5A6D32000A0E25 /* BNRItem.m */; };
 		DCA2514F1A5A7240000A0E25 /* BNRItemStore.m in Sources */ = {isa = PBXBuildFile; fileRef = DCA2514E1A5A7240000A0E25 /* BNRItemStore.m */; };
+		DCAFCA991A5BCA8A00CB4E2C /* BNRDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DCAFCA971A5BCA8A00CB4E2C /* BNRDetailViewController.m */; };
+		DCAFCA9A1A5BCA8A00CB4E2C /* BNRDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCAFCA981A5BCA8A00CB4E2C /* BNRDetailViewController.xib */; };
 		DCDBF1171A5B830300CFAA4C /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCDBF1161A5B830300CFAA4C /* HeaderView.xib */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +47,9 @@
 		DCA2514B1A5A6D32000A0E25 /* BNRItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNRItem.m; sourceTree = "<group>"; };
 		DCA2514D1A5A7240000A0E25 /* BNRItemStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNRItemStore.h; sourceTree = "<group>"; };
 		DCA2514E1A5A7240000A0E25 /* BNRItemStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNRItemStore.m; sourceTree = "<group>"; };
+		DCAFCA961A5BCA8A00CB4E2C /* BNRDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNRDetailViewController.h; sourceTree = "<group>"; };
+		DCAFCA971A5BCA8A00CB4E2C /* BNRDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNRDetailViewController.m; sourceTree = "<group>"; };
+		DCAFCA981A5BCA8A00CB4E2C /* BNRDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BNRDetailViewController.xib; sourceTree = "<group>"; };
 		DCDBF1161A5B830300CFAA4C /* HeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -93,6 +98,9 @@
 				DCA2514E1A5A7240000A0E25 /* BNRItemStore.m */,
 				DCA251221A5A5ADB000A0E25 /* AppDelegate.h */,
 				DCA251231A5A5ADB000A0E25 /* AppDelegate.m */,
+				DCAFCA961A5BCA8A00CB4E2C /* BNRDetailViewController.h */,
+				DCAFCA971A5BCA8A00CB4E2C /* BNRDetailViewController.m */,
+				DCAFCA981A5BCA8A00CB4E2C /* BNRDetailViewController.xib */,
 				DCA251441A5A6463000A0E25 /* BNRItemsViewController.h */,
 				DCA251451A5A6463000A0E25 /* BNRItemsViewController.m */,
 				DCDBF1161A5B830300CFAA4C /* HeaderView.xib */,
@@ -209,6 +217,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DCAFCA9A1A5BCA8A00CB4E2C /* BNRDetailViewController.xib in Resources */,
 				DCDBF1171A5B830300CFAA4C /* HeaderView.xib in Resources */,
 				DCA2512F1A5A5ADB000A0E25 /* LaunchScreen.xib in Resources */,
 				DCA2512C1A5A5ADB000A0E25 /* Images.xcassets in Resources */,
@@ -229,6 +238,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DCAFCA991A5BCA8A00CB4E2C /* BNRDetailViewController.m in Sources */,
 				DCA2514F1A5A7240000A0E25 /* BNRItemStore.m in Sources */,
 				DCA251461A5A6463000A0E25 /* BNRItemsViewController.m in Sources */,
 				DCA2514C1A5A6D32000A0E25 /* BNRItem.m in Sources */,
