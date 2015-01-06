@@ -21,7 +21,9 @@
   self = [super initWithStyle:UITableViewStyleGrouped];
   if (self) {
     self.sectionTitles = @[ @"more than $50", @"others" ];
-    for (int i = 0; i < 1; i++) {
+    self.tableView.backgroundView =
+        [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bgimage"]];
+    for (int i = 0; i < 10; i++) {
       [[BNRItemStore sharedStore] createItem];
     }
   }
@@ -95,6 +97,7 @@
     item = filteredItems[indexPath.row];
 
     cell.textLabel.text = [item description];
+    cell.textLabel.font = [cell.textLabel.font fontWithSize:20];
   }
 
   return cell;
@@ -114,6 +117,14 @@
 - (NSString *)tableView:(UITableView *)tableView
     titleForHeaderInSection:(NSInteger)section {
   return self.sectionTitles[section];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView
+    heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+  return indexPath.row + 1 == [self tableView:tableView
+                                  numberOfRowsInSection:indexPath.section]
+             ? 44 // for the constant row
+             : 60;
 }
 
 @end
